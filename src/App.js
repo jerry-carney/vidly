@@ -11,6 +11,7 @@ import NavBar from "./components/navBar";
 import RegisterForm from "./components/registerForm";
 import LoginForm from "./components/loginForm";
 import Logout from "./components/logout";
+import AboutWebsite from "./components/aboutWebsite";
 import auth from "./services/authService";
 import ProtectedRoute from "./components/common/protectedRoute";
 import "./App.css";
@@ -44,6 +45,7 @@ class App extends Component {
             <Route path="/profile" component={Profile} />
             <Route path="/customers" component={Customers} />
             <Route path="/rentals" component={Rentals} />
+            <Route path="/about" component={AboutWebsite} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/movies" />
             <Redirect to="/not-found" />

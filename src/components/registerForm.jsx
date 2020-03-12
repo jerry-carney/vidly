@@ -15,13 +15,14 @@ class RegisterForm extends Form {
     username: Joi.string()
       .required()
       .email()
-      .label("Username"),
+      .label("Email"),
     password: Joi.string()
       .required()
       .min(5)
       .label("Password"),
     name: Joi.string()
       .required()
+      .min(3)
       .label("Name")
   };
 
@@ -45,7 +46,7 @@ class RegisterForm extends Form {
       <div>
         <h1>Register</h1>
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput("username", "Username")}
+          {this.renderInput("username", "Email")}
           {this.renderInput("password", "Password", "password")}
           {this.renderInput("name", "Name")}
           {this.renderButton("Register")}
