@@ -16,37 +16,37 @@ const AboutWebsite = () => {
           <h3>Register</h3>
           <p>
             You can't do much if you don't Register. There are no worries about
-            privacy since you can enter a bogus email. But, remember your
-            password if you Logout, because you will need it to Login again.
+            privacy since you can enter a bogus email &ndash; e.g., foo@foo.com.
+            But, remember your password if you Logout, because you will need it
+            to Login again (on logout, your local JWT is deleted).
           </p>
           <h3>Using Website</h3>
-          <p>
-            Navigate and click on what ever you want, this website is intuitive.
-            Things you can do:
-            <ul>
-              <li>Display Movies of a particular Genre</li>
-              <li>Add a Movie</li>
-              <li>Seach for a Movie</li>
-              <li>Paginate through the Movies</li>
-              <li>
-                Order the Movie List by Title, Genre, Number in Stock, and
-                Rating
-              </li>
-              <li>Click on your User Icon/Name to see your Profile</li>
-              <li>
-                <b>As Admin</b>, Delete a Movie{" "}
-                <i>(Contact me to get Admin priviledge)</i>
-              </li>
-            </ul>
-          </p>
+          Navigate and click on what ever you want, this website is intuitive.
+          Things you can do:
+          <ul>
+            <li>Display Movies of a particular Genre</li>
+            <li>Add a Movie</li>
+            <li>Search for a Movie</li>
+            <li>Paginate through the Movies</li>
+            <li>
+              Order the Movie List by Title, Genre, Number in Stock, and Rating
+            </li>
+            <li>Click on your User Icon/Name to see your Profile</li>
+            <li>Enjoy playing the classic game FizzBuzz</li>
+            <li>
+              <b>As Admin</b>, Delete a Movie{" "}
+              <i>(Contact me to get Admin priviledge)</i>
+            </li>
+          </ul>
           <h3>Website Technologies</h3>
           <p>
             This website may seem fundamental, but it packs sought after
             technology. This website is a SPA (Single Page Application) written
-            in ReactJS. It uses Bootstrap components, Font Awesome, JSON Web
-            Tokens (JWT), Axios, as well as other software in package.json
-            depencies from the source code for this website that is stored in
-            GitHub at URL: https://github.com/jerry-carney/jerry-movie <br />
+            in ReactJS/JSX (JavaScript XML). It uses Bootstrap components,
+            Font-Awesome icons, JSON Web Tokens (JWT), lodash, joi, toastify,
+            axios, etc &ndash;, see package.json depencies from the source code
+            for this website stored in GitHub at URL:
+            https://github.com/jerry-carney/jerry-movie <br />
             <br />
             The middle-ware CRUD API was coded in Node and Express. The back-end
             database is MongoDB.
@@ -68,8 +68,8 @@ const AboutWebsite = () => {
                 Senior Software Engineer
               </p>
               <a
-                className="nav-link"
                 href="https://www.linkedin.com/in/jerry-carney-72266958/"
+                target="_blank rel=noopener noreferrer"
               >
                 Jerry's LinkedIn profile
               </a>
