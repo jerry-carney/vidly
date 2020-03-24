@@ -45,12 +45,31 @@ const AboutWebsite = () => {
             in ReactJS/JSX (JavaScript XML). It uses Bootstrap components,
             Font-Awesome icons, JSON Web Tokens (JWT), lodash, joi, toastify,
             axios, etc &ndash;, see package.json depencies from the source code
-            for this website stored in GitHub at URL:
-            https://github.com/jerry-carney/jerry-movie <br />
+            for this website stored in GitHub URL:
+            https://github.com/jerry-carney/vidly <br />
             <br />
-            The middle-ware CRUD API was coded in Node and Express. The back-end
+            The middle-ware CRUD API was coded in Node and Express, the source
+            code is stored in GitHub URL:
+            https://github.com/jerry-carney/vidly-api-node. The back-end
             database is MongoDB.
           </p>
+          <h3>Cloud Technologies</h3>
+          Feel free to contact me about the setup and configuration.
+          <ul>
+            <li>
+              <u>front-end</u> (this website) - deployed to/and hosted as a
+              Heroku app
+            </li>
+            <li>
+              <u>middle-ware</u> (CRUD API) - deployed to/and hosted as a Heroku
+              app
+            </li>
+            <li>
+              <u>back-end</u> (database) - created and hosted on a
+              MongoDB/Atlas/Azure Cluster.
+            </li>
+          </ul>
+          <br />
         </div>
 
         <div className="col-md-4">

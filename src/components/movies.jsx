@@ -140,7 +140,7 @@ class Movies extends Component {
               />
             </div>
             <div className="col">
-              {user && totalCount <= 100 && (
+              {user && totalCount && (
                 <Link
                   to="/movies/new"
                   className="btn btn-primary"
