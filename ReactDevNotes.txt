@@ -1,0 +1,639 @@
+React:
+- Developed at Facebook in 2011
+- A JavaScript libray for building fast and interactive user interfaces
+- Most popular JavaScript library for building user interfaces (Others are Angular and Vue)
+- Every React application is a Tree of Components with the root being App
+
+React Compont, a  javascript class:
+class Tweet {
+	// data to be displayed when render() ed
+	state = {}; 
+	 // discribing what the UI should look like. Output is a React element. A JavaScript object that maps to a DOM Element
+	render() { 
+}
+
+- React's Virtual DOM maps to the Real DOM
+- No long have to work with the DOM API in browsers
+- Simply change the state of our components, and React will automatically update the DOM to match that state
+- React is called React, because it reacts to state changes and updates the DOM
+Angular: Component based. Framework or complete solution.
+React: Component based. React is a Library. It only takes care of rendering the View and makes sure the View is in synch with the state.
+ - React has a small API, so other libraries are used.
+ 
+ 
+ 
+ //NOTE********** Using current version is 3.3.0, even though Mosh is teaching version 1.5.2
+ $npm i -g create-react-app@latest  // As Admin
+ 
+Add VS Code Extensions:
+- Simple React Snippets
+- Prettier
+Set User editor.formatOnSave: true
+
+Go to the top dir that you wish:
+C:\ReactPractice\MasteringReact>npx create-react-app react-app // takes awhile
+
+$cd react-app 
+
+$npm start //launches development server on port 3000. localhost:3000 // in browser
+
+Hot Module Reloading
+- Everytime you save a src file the code is compiled and re-loaded into the development server automatically.
+
+// React element is part of the Virtural DOM, E.g.:
+// Src
+const element = <h1>Hello Larry</h1>;
+console.log(element);
+// browser console
+> {$$typeof: Symbol(react.element), type: "h1", key: null, ref: null, props: {…}, …}
+- When the above element changes, then react will reach out to update the  Real DOM
+
+JSX Expression: E.g.:
+<h1>Hello Larry</h1>
+
+NOTE: Only use 'reject' if you are advanced know what you are doing
+$ npm run eject // DO NOT DO THIS
+
+JavaScript:
+- Avoid using var because it does not obey proper scope
+- setTimeout() can be useful
+- Arrow functions can be scary, but do more and you're like them
+- Arrow functions don't rebind this, I.e. Have access to this
+- map() function is good for rendering lists
+
+
+***********************Develop Our First Component ***********************
+App dir is counter-app
+NOTE: Todos to make sure your app has what it needs
+You can run the following cmds from a cmd prompt window in the counter-app dir OR console in vscode
+$ npm install      //installs anscillary libs
+$ npm i jquery popper.js      //most apps need jquery and popper.js
+
+//NOTE: Mosh is using Bootstrap 4.1.1
+$ npm i bootstrap@latest     // 4.4.1, NOTE: I used bootstrap in my Angular/TypeScript app
+Add below import to index.js:
+import 'bootstrap/dist/css/bootstrap.css';
+
+Current dependencies in package.json:
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.1"
+  }
+  
+Created components dir under src and created:
+counter.jsx   // use jsx for better code completion
+Utilize Snippets Extension:
+imrcTAB results in:
+import React, { Component } from 'react';
+ccTAB results in creating a component skeleton:
+class  extends Component {
+  state = {  }
+  render() { 
+    return (  );
+  }
+}
+export default ;
+AFTER EDITS:
+import React, { Component } from "react";
+
+class Counter extends Component {
+  render() {
+    return <h1>Hello from Counter component</h1>; //jsx expression
+  }
+}
+
+export default Counter;
+
+In order to use Counter component we need to update index.js (again):
+import Counter from './components/counter';
+update:
+ReactDOM.render(<App />, document.getElementById("root"));
+to:
+ReactDOM.render(<Counter />, document.getElementById("root"));
+
+In browser (Real DOM), Counter component rendered properly:
+Hello from Counter component
+
+The state object contains any data that the component needs
+
+NOTE: BootstrapHome->Documentation->search
+- - - - - - - - - - - - - - -
+
+Setting up Vidly Project
+$ npx create-react-app vidly
+$ npm install      //installs anscillary libs
+$ npm i jquery popper.js      //most apps need jquery and popper.js
+$ npm i bootstrap@latest     // 4.4.1, Mosh 4.1.1
+$ npm i font-awesome@latest    // 4.7.0, Mosh 4.7.0
+
+Added below imports to src/index.js:
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
+
+$npm start
+**************End Development for Our First two Components ***************
+
+-props include data that is given to a Compent and are read-only
+-state includes data that is is local or private to that internal component
+(so other components can not acces that state)
+
+-The component that owns a piece of the state, should be the one modifying it.
+-A single source of truth is needed for some components (Removing the Local State)
+-A controlled component does NOT hall its own local state.
+  -It receives all its data via props from its parent,
+  -and raises events to its parent whenever data needs to be changed,
+  -It is entirely controlled by its parent
+  
+COOL: Short-cuts:
+When you create a new react .jsx, then:
+ 
+imrc[RETURN] produces:
+import React, { Component } from 'react';
+ 
+cc[RETRUN] produces:
+class  extends Component {
+ state = {  }
+ render() { 
+   return (  );
+ }
+}
+export default ;
+
+sfc[RETURN] produces: //stateless functional component
+const  = () => {
+  return (  );
+}
+
+---------------------------------------------------------------------
+
+Section: Pagination, Filtering, and Sorting of app Vidly -- COOL
+To help Pagination we need to install lodash
+$ npm i lodash@latest // 4.17.15, Mosh: 4.17.10: popular library with alot of ultilities
+
+Libary to assist in type-checking, prop-types
+$ npm i prop-types@latest // 15.7.2, Mosh: 15.6.2
+
+---------------------------------------------------------------------
+
+******************************** Routing ***********************************
+Note: Beginning source code from Mosh download.
+$ npx create-react-app router-app
+$ npm install      //installs anscillary libs
+$ npm i jquery popper.js      //most apps need jquery and popper.js
+
+Installed: extension Auto Import -ES6, TS, JSX, TSX
+
+Unlike Angular, React does NOT have the concept of ROUTING
+React is a simple light-weight library, its only responsible for rendering the view
+
+To add ROUTING to our react application, we need to install library:
+$ npm i react-router-dom@latest  // 5.1.2, Mosh: 4.3.1
+
+index.js added:
+import { BrowserRouter } from "react-router-dom";
+:
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
+NOTE: <BrowserRouter> grabs the history object in browsers and passes it down the component tree
+
+Registering our Routes:
+Tell react what component should be rendered, based on a given a URL
+Apps.js added:
+import { Route } from 'react-router-dom';
+:
+      <div>
+        <NavBar />
+        <div className="content">
+           <Route path="/products" component={Products} />
+          <Route path="/posts" component={Posts} />
+          <Route path="/admin" component={Dashboard} />
+          <Route path="/" component={Home} />
+        </div>
+      </div>
+
+NOTE: Strive for a SPA (Single Page Application). We do NOT want a full reload.
+
+If you want to add additonal props to a component (other than: history, location, match),
+then in App.js change:
+<Route path="/products" component={Products} />
+to
+<Route path="/products" render={(props) => <Products sortBy="newest" {...props} />}
+
+Another install:
+$ npm i query-string@latest // 6.10.0, Mosh: 6.1.0
+
+Enhanced Vidly with routings
+------------------------------------------------------------------------
+
+******************************** Forms ***********************************
+To access DOM elements in react, we should NEVER work with the document object
+E.g.: BAD
+const username = document.getElementById('username').value;
+Also minimize use of refs uless you really know what you are doing:
+<input ref={this.username} id="username" type="text" className="form-control" />
+
+To implement validation rules we are goint to use Joi library:
+$ npm i joi-browser@latest // 13.4.0 , Mosh: 13.4
+
+
+*************************** Back End Services ******************************
+Using a FAKE Back End called: JSONPlaceholder - REST API for CRUD operations
+See: https://jsonplaceholder.typicode.com/
+Resoures:
+/posts
+/comments
+:
+/users
+
+consider: JSON Viewer extension for Chrome (I did not add it)
+
+Http Client Librarys: Fetch API, jQuery AJAX, Axios
+Mosh prefers ---------> Axios <----------------
+$ npm i axios@latest // 0.19.2, Mosh 0.18
+
+The four main HTTP methods (GET, PUT, POST, and DELETE) can be mapped to CRUD operations as follows:
+GET retrieves the representation of the resource at a specified URI. ...
+PUT updates a resource at a specified URI. ...
+POST creates a new resource. ...
+DELETE deletes a resource at a specified URI.
+
+Promise: is an object that holds the result of an asynchronous(completes in the future) operation. 
+await - waits until async operate is complete
+async - prefix to functions that use "await"
+
+patch vs. put:
+patch - update one or more properties
+put - update ALL properties
+
+Pessimistic Updates - await backend response, then update local data
+Optimistic Updates - update local data, then await backend response
+
+Handle  Expected and Unexpected Errors: e.g.:
+catch (ex) {
+      // Expected erros (status: 404-not found, 400-bad request) - CLEINT ERRORS
+      //  - Display a specific error message to user
+      if (ex.response && ex.response.status === 404)
+        alert("This post was not found or was already deleted.");
+      // Unexpected errors (errors that should not occur under normal circumstances)
+      //  => Network down, Server down, DB down, App bug
+      //  - Log them
+      //  - Display a generic and friendly error message to user
+      else {
+        console.log("Logging the error", ex);
+        alert("An unexpected error occurred.");
+      }
+
+Axios Interceptor - Can intercept Requests and Responses, and if we have a Response
+ with an unexected error, then we can handle that error in one place for all CRUD requests in the file.
+- Leave the handling of unexpected errors to the interceptor.
+- Handle expected errors in your local CRUD operation catch block.
+
+Toasty - a nicer alternative to alert, info, warn, success, etc.
+$ npm i react-toastify@latest //5.5.0, Mosh: 4.1      <------------------<<<<
+also: import "react-toastify/dist/ReactToastify.css"; in source files
+
+LOGGING
+My favorite logging site: sentry.io
+Your have to become a member
+I created project: react-project, note your link to dns URL
+$ npm install @sentry/browser
+
+import * as Sentry from "@sentry/browser";
+Sentry.init({dsn: "https://c837c3fadff44a8f97c8b6d9ef04c7ed@sentry.io/2642688"});
+Sentry.captureException("jerryc-react-project: " + error);
+
+----------> VERY COOL <-----------
+Errors show up at sentry.io under react-project 
+
+MongoDB
+mongodb.com
+
+****************************** FOOBAR *****************************
+ClusterJerry0
+JERRY'S ORG - 2020-02-20 > PROJECT 0
+mongodb+srv://jerryc:jerryc@clusterjerry0-7lu6b.mongodb.net/test?retryWrites=true&w=majority
+mongodb+srv://jerryc:<password>@clusterjerry0-7lu6b.mongodb.net/test?retryWrites=true&w=majority
+
+Installed MongoDB Compass Community App
+
+Git Mosh's vidly-api-node from Github:
+C:\ReactPractice\MasteringReact>git clone https://github.com/mosh-hamedani/vidly-api-node.git
+Install dependencies
+****************************** FOOBAR
+
+I downloaded MongoDB to my PC which is running as a windows service.
+I downloaded MongoDB Compass to my PC which is an IDE to the MongoDB.
+
+SEEDING THE DB, i.e. putting for data into it.
+PS C:\ReactPractice\MasteringReact\vidly-api-node> node seed.js
+(node:8552) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:8552) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+Done!
+
+RESULT (via MongoDB Compass)
+Vidly DB
+genres	4	48.8 B	195.0 B	1	20.5 KB		
+movies	13	142.1 B	1.8 KB	1	36.9 KB		
+users	0	-	0.0 B	2	12.3 KB
+
+> MongoDB is a Windows Severvice set to Manual (I have to start and stop it)
+localhost:27017
+
+Starting Web Server with the CRUD API
+vidly-api-node $ node index.js //middle-ware JSON/CRUD server <============*
+Result: localhost:3900/api
+Used  Talend Chrome extension to do some CRUD operations.
+> api/genres
+> api/movies
+
+done adding CRUDapi/MongoDB to vidly in calling backend services.
+
+************************ Authentification and Authorization ****************************
+Every Brower has a small db called: localStorage. Here we can store (key,value) pairs. Eg.:
+vidly/src/components/loginForm.jsx:
+const { data: jwt } = await login(data.username, data.password); // login returns a JWT
+localStorage.setItem("token", jwt);
+
+JSON Web Token (JWT) - an Internet standard for creating JSON-based access tokens that assert
+some number of CLAIMS. For example, he server generates a token that certifies the user identity,
+and sends it to the client.
+The client will send the token back to the server for every subsequent request, so the server knows
+the request comes from a particular identity.
+Its value is a JSON-64bit-encoded object.
+
+Extra custom data can be added to an HTTP header through (white-listing it)
+vidly-api-node; routes/users.js
+    .header("x-auth-token", token)
+    .header("access-control-expose-headers", "x-auth-token") //white-listing x-auth-token (JWT)
+After successfully Registering, the HTTP Response header now contains:
+headers>x-auth-token: "eyJhbGciOiJIUzI1NiIsInR5cCI6Ik..."
+vidly/src/components/registerForm.jsx:
+const response = await userService.register(this.state.data);
+localStorage.setItem("token", response.headers["x-auth-token"]); //JWT
+
+>>>>>>>>> COOL <<<<<<<<<<<
+jwt.io - main website for working with JWTs
+Debbugger: Encoded | Decoded
+
+Place an encoded JWT in Encoded Side:
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJfaWQiOiI1ZTU2ZGU5ZTMwNWY3YjAyZTAwODRmMWMiLCJuYW1lIjoidXNlcjYiLCJlbWFpbCI6InVzZXI2QHlhaG9vLmNvbSIsImlhdCI6MTU4Mjc1MTM5MH0.
+E7zwCSobmwL_x13CVXx21rI5UteesAjzSgxrTcatgt8
+
+On Decoded Side
+Header (Algorithm & Token Type):
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+Payload (Data):
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "iat": 1516239022 // time token was generated
+}
+Verify Signature (Digital Signature based on the Header, Payload and a Secret(Private Key) only available on the Server):
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+your-256-bit-secret
+) secret base64 encoded
+
+We need to decode a JWT in Vidly, so we need to install:
+$ npm i jwt-decode@latest // 2.2.0, Mosh: 2.2.0
+App.js
+Did some happy horse-shit, and refactored (yeah!)
+
+****************************** TEIR STARTUP PROCEDURE *****************************
+Starting MongoDB
+On my PC Window's service: start MongoDB
+-------------------------------------------------------
+Starting Web Server with the CRUD API
+vidly-api-node $ node index.js //middle-ware Node/Express server <============*
+Result: localhost:3900/api
+-------------------------------------------------------
+Starting Front End app
+> npm start
+******************************** 
+
+3/1/2020
+On my own, I added user-type icons (navbar & userService) and completed profile
+
+
+
+
+*************************** Mosh Added Advanced Section ******************************
+//NOTE**********
+ Upgraded to latest nodejs
+ $ node -v
+ v12.16.1
+
+ Upgraded to latest create-react-app - TODO: TOTRY: LOOKS LIKE YOU CAN UNINSTALL create-react-app
+ create-react-app
+ 3.4.0
+
+C:\ReactPractice\MasteringReact>npx create-react-app react-advaced
+High Order Components (reuse logic across components)
+origClass1 -> o(function)e.g.toolTip -> newClass2WithToolTip
+origClass2 -> o(function)e.g.toolTip -> newClass2WithToolTip
+etc...
+
+Component
+Functional - stateless
+Class - stateful
+After react 16.8 ***************
+Functional - stateful <------<<< new feature called **** Hooks ****
+Class - stateful
+
+Why Hooks (to improve function components) ?
+- Classes are a bit difficult (for non advanced developers)
+Note: javascript classes are syntactical sugar over the constructor function.
+- The this keyword (can be confusioning to non advanced developers)
+- Boilerplate code (is required for building class components)
+
+HOOK - is a function that allows us to hook into react features like working with STATE or LIFE-CYCLE methods
+***** hooks begin with useXXX;
+
+useState Hook - returns an Array with two items
+const [count, setCount] = useState(0); // 0 is initial value
+0 - count: init value 0 // ~this.state.count
+1 - setCount(): function for setting count // ~this.setCount()
+-----
+const [name, setName] = useState(""); // "" is initial value
+0 - value of name=""
+1 - setName()
+-----
+Objects will work also
+
+***** hooks are stored in sequencial fashion (within the function memory space) as they are declared.
+
+THEREFORE, YOU CAN NOT CALL HOOKS IN:
+- loops
+- conditions
+- nested functions
+
+useEffect Hook - allows us to hook into our components life-cycle methods
+***** gets called every time our component renders
+
+custom Hook - naming convention useXXX
+useXXX can be reused as well.
+------
+
+Problems with getting an element (prop): (Share Data across different Components)
+- prop drilling
+- redux lib with global store of state(s) (redux brings a lot of complexity)
+- SOLUTION: React Context - we can pass data down our component tree without prop drilling.
+Providers <UserContext.Provider value={this.state.currentUser}>child components</UserContext.Provider>
+Consumers <UserContext.Consumer>special function</UserContext.Consumer> // NO!
+
+NOTE:
+useContext hook in functional components is way eaier than the methodology in class components
+
+Updating the context....
+same technique of sending down onLoggedIn: this.handleLoginIn changes currentUser which trickles down
+I'm so impressed (NOT)! Alot of happy horseshit, but it could be useful
+
+Multiple contexts (I can't wait, ahhhhhhhhh)
+***************************
+
+
+****************************************************************************************
+*************************** Source Code Control & Deployment ******************************
+ROOTDIR: (not src)
+.env: Default.
+.env.local: Local overrides. This file is loaded for all environments except test.
+.env.development, .env.test, .env.production: Environment-specific settings.
+.env.development.local, .env.test.local, .env.production.local: Local overrides of environment-specific settings.
+
+.env.delelopment - development, i.e.:
+REACT_APP_NAME=Vidly in Dev
+REACT_APP_VERSION=1
+
+$ npm run build
+creates an optimized production build; ROOTDIR/build
+
+$ npm install -g serve
+simple light-weight webserver
+
+$ serve -s build   // must be Admin
+serve production build. it is running on localhost:5000
+
+   ┌───────────────────────────────────────────────────┐
+   │                                                   │
+   │   Serving!                                        │
+   │                                                   │
+   │   - Local:            http://localhost:5000       │
+   │   - On Your Network:  http://192.168.0.140:5000   │
+   │                                                   │
+   │   Copied local address to clipboard!              │
+   │                                                   │
+   └───────────────────────────────────────────────────┘
+   
+ -------------
+ Gitbub - Source Code Control  // aready have login/password
+ Heroku - Applicatin Deployment  // created an account with login/password, then downloaded heroku-cli
+ mLab(MongDB Cloud) - Database  // created an account with login/password, created project Vidly with db cluster 0
+ Application URL connection string to connect to DB:
+see below
+
+ -------------
+Mosh already had an origin in Github for node-api-node; so I had to change the remote origin to mine, i.e.
+- I created a new repository in github named: vidly-api-node
+- vidly-api-node> git remote set-url origin https://gitub.com/jerry-carney/vidly-api-node.git
+- vidly-api-node> git push origin master
+- After an update to a file in the project, I staged and commited it.
+- vidly-api-node> git push -u origin master
+
+Deploying to Heroku: vidly-api-node
+vidly-api-node> heroku create   // creates a randon application name
+ »   Warning: heroku update available from 7.39.0 to 7.39.1.
+Creating app... done, ⬢ intense-gorge-95885
+https://intense-gorge-95885.herokuapp.com/ | https://git.heroku.com/intense-gorge-95885.git
+
+name of application: intense-gorge-95885
+URL of application hosted at this address: https://intense-gorge-95885.herokuapp.com/  (vidly will send requests here)
+heroku remote repository: https://git.heroku.com/intense-gorge-95885.git
+(when we push updates to repository, it automatically updates and rebuilds the app: "continues integration"
+First push: (current git branch is master)
+vidly-api-node> git push heroku master
+:
+alot of output; Build Successfull, Compressing..., Launching...,  Verifying deploy... done.
+
+Open application:
+vidly-api-node> heroku open
+- launches browser pointing to application on heroku
+- browser tab came up and displayed Application error. TO BE ADDRESSED by viewing logs
+
+Viewing Logs:
+App name (intense-gorge-95885) displayed on heroku dashboard: https://dashboard.heroku.com/apps
+See More>View Logs  || use the terminal which Mosh prefers
+vidly-api-node> heroku logs
+failed to connect to server (db), because our proj default.json settings to the localhost
+
+Connection: we are going to use the mLab/MongoDB/Azure URL created above
+vidly-api-node project: We don't want to put any passwords in our source code, so:
+We need to set heroku ENV Variables!
+
+// cmd line: heroku config:set vidly_db AND heroku dashboard app config var vidly_db to value below
+vidly-api-node> heroku config:set vidly_db=
+mongodb://vidlyuser:vidly123@vidlydb-shard-00-00-r0bnl.azure.mongodb.net:27017,vidlydb-shard-00-01-r0bnl.azure.mongodb.net:27017,vidlydb-shard-00-02-r0bnl.azure.mongodb.net:27017/vidly?ssl=true&replicaSet=VidlyDB-shard-0&authSource=admin
+
+updated package.json: added script: "production": "node index.js",
+> git push heroku master
+
+------
+front-end
+Did updates according to Mosh instruction in 10-Preparing the Front-end for Deployment.
+- .env.delelopment
+- .env.production
+- updating files that used to use to use apiURL from config.json
+
+Before Deploying:
+Create a production build, serve it locally, and make sure its connecting the middle-ware app on Heroku
+vidly> npm run build
+vidly> serve -s build
+In browser tab: /localhost:5000/movies
+Awesome! It's talking to the middle-ware Heruko app and rending Genres and Movies from MongoDB/Atlas
+
+-----
+Before following Mosh's instructions to Deploy to Heroku, I wan to do my final updates
+and store Vidly in Github
+vidly> git remote add origin https://github.com/jerry-carney/vidly.git
+vidly> git push -u origin master
+Successfully
+-----
+
+Deploying the front-end:
+vidly> git init
+vidly> git commit -m "init heruko commit" // don't think it did anything because vidly is stored in git and is up-to-date
+Google heroku buildpack for create-react-app (collection of script for create-react-app to be deployed to heroku)
+https://github.com/mars/create-react-app-buildpack
+vidly> heroku create --buildpack https://github.com/mars/create-react-app-buildpack.git
+vidly> git push heroku master
+:
+remote:        https://agile-meadow-67900.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/agile-meadow-67900.git
+ * [new branch]      master -> master
+ 
+ 
+AWESOME: The front-end URL is below working<----->middle-ware<----->back-end DB
+
+front-end: https://agile-meadow-67900.herokuapp.com/
+middle-ware: https://intense-gorge-95885.herokuapp.com/
+back-end: https://cloud.mongodb.com/v2/5e74e6999561ae51760b76a5#clusters
+mongodb://vidlyuser:vidly123@vidlydb-shard-00-00-r0bnl.azure.mongodb.net:27017,vidlydb-shard-00-01-r0bnl.azure.mongodb.net:27017,vidlydb-shard-00-02-r0bnl.azure.mongodb.net:27017/vidly?ssl=true&replicaSet=VidlyDB-shard-0&authSource=admin
+
+YYYYYYYYYYYYYYYYYYY EEEEEEEEEEEEEEEEEEEEEEEEEE SSSSSSSSSSSSSSSSS

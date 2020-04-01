@@ -18,7 +18,7 @@ const AboutWebsite = () => {
             You can't do much if you don't Register. There are no worries about
             privacy since you can enter a bogus email &ndash; e.g., foo@foo.com.
             But, remember your password if you Logout, because you will need it
-            to Login again (on logout, your local JWT is deleted).
+            to Login again.
           </p>
           <h3>Using Website</h3>
           Navigate and click on what ever you want, this website is intuitive.
@@ -48,8 +48,8 @@ const AboutWebsite = () => {
             for this website stored in GitHub URL:
             https://github.com/jerry-carney/vidly <br />
             <br />
-            The middle-ware CRUD API was coded in Node and Express, the source
-            code is stored in GitHub URL:
+            The middle-ware JSON/CRUD API was coded in Node and Express, the
+            source code is stored in GitHub URL:
             https://github.com/jerry-carney/vidly-api-node. The back-end
             database is MongoDB.
           </p>
@@ -58,11 +58,11 @@ const AboutWebsite = () => {
           <ul>
             <li>
               <u>front-end</u> (this website) - deployed to/and hosted as a
-              Heroku app
+              Heroku app.
             </li>
             <li>
-              <u>middle-ware</u> (CRUD API) - deployed to/and hosted as a Heroku
-              app
+              <u>middle-ware</u> (JSON/CRUD API) - deployed to/and hosted as a
+              Heroku app.
             </li>
             <li>
               <u>back-end</u> (database) - created and hosted on a
